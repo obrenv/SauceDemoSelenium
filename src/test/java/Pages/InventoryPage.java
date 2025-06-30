@@ -4,6 +4,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import java.util.List;
+
 import static Base.BaseTest.driver;
 
 public class InventoryPage {
@@ -28,6 +30,9 @@ public class InventoryPage {
     @FindBy(id = "react-burger-menu-btn")
     public WebElement burgerMenu;
 
+    @FindBy(css = ".btn.btn_primary.btn_small.btn_inventory")
+    public List<WebElement> addToCartButtons;
+
     //-----------------------Methods
 
     public void clickAddToCart(){
@@ -45,5 +50,11 @@ public class InventoryPage {
     public void clickOnACart(){
         cartIcon.click();
     }
+
+//    public void addAllItems(){
+//        for (WebElement item : addToCartButtons){
+//            item.click();
+//        }
+//    }
 
 }

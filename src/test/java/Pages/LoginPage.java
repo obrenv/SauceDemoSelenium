@@ -22,7 +22,7 @@ public class LoginPage extends BaseTest {
     public WebElement loginButton;
 
     @FindBy(css = "h3[data-test=error]")
-    public WebElement lockedUserError;
+    public WebElement userError;
 
     @FindBy(className = "inventory_item_img")
     public List<WebElement> bugSlike;

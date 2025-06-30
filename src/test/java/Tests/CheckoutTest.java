@@ -30,4 +30,36 @@ public class CheckoutTest extends BaseTest {
         Assert.assertTrue(cartPage.checkoutComplete.getText().equals("Thank you for your order!"));
     }
 
+    @Test
+    public void testFormFillingProperly(){
+        loginPage.login(standardUser,validPassword);
+
+        inventoryPage.clickAddToCart();
+        inventoryPage.clickOnACart();
+        cartPage.clickCheckout();
+
+        cartPage.filloutForm("Obren", "Obrenovic", "18000");
+
+
+        Assert.assertEquals(cartPage.firstName.getAttribute("value"), "Obren");
+        Assert.assertEquals(cartPage.lastName.getAttribute("value"), "Obrenovic");
+        Assert.assertEquals(cartPage.zipCode.getAttribute("value"), "18000");
+
+    }
+
+    @Test
+    public void testCantSendFormWithEmptyFields(){
+
+        loginPage.login(standardUser,validPassword);
+
+        inventoryPage.clickAddToCart();
+        inventoryPage.clickOnACart();
+        cartPage.clickCheckout();
+
+        cartPage.filloutForm("", "", "");
+        cartPage.clickContinue();
+
+        Assert.assertEquals(cartPage.userErrorCart.getText(), "Error: First Name is required");
+    }
+
 }

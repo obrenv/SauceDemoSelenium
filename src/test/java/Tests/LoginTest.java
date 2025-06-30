@@ -17,7 +17,7 @@ public class LoginTest extends BaseTest {
     public void testLockedOutUserCannotLogin() {
         loginPage.login(lockedOutUser, validPassword);
 
-        Assert.assertEquals(loginPage.lockedUserError.getText(),
+        Assert.assertEquals(loginPage.userError.getText(),
                 "Epic sadface: Sorry, this user has been locked out.");
     }
 
@@ -58,5 +58,16 @@ public class LoginTest extends BaseTest {
 
         Assert.assertTrue(driver.getCurrentUrl().equals("https://www.saucedemo.com/"));
     }
+
+    @Test
+    public void testStandardUserCantLoginWithWrongPassword(){
+        loginPage.login(standardUser, "stagod");
+
+        Assert.assertEquals(loginPage.userError.getText(),
+                "Epic sadface: Username and password do not match any user in this service");
+
+    }
+
+
 
 }

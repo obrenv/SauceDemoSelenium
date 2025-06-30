@@ -8,6 +8,7 @@ public class AddToCartTest extends BaseTest {
 
     @Test
     public void testAddToCart() {
+       driver.manage().deleteAllCookies();
        loginPage.login(standardUser,validPassword);
        Assert.assertTrue(inventoryPage.emptyCartIcon.getText().equals(""));
        inventoryPage.clickAddToCart();
@@ -23,4 +24,16 @@ public class AddToCartTest extends BaseTest {
         inventoryPage.clickRemove();
         Assert.assertTrue(inventoryPage.emptyCartIcon.getText().equals(""));
     }
+
+//    @Test
+//    public void testAddAllItemsToCart(){
+//        driver.manage().deleteAllCookies();
+//        loginPage.login(standardUser,validPassword);
+//
+//
+//        inventoryPage.addAllItems();
+//        Assert.assertEquals(inventoryPage.cartIcon.getText(), "6");
+//    }
+
+
 }

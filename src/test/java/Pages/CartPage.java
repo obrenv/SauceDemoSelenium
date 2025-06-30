@@ -36,6 +36,8 @@ public class CartPage {
     public WebElement checkoutComplete;
 
 
+    @FindBy(css = "h3[data-test=error]")
+    public WebElement userErrorCart;
     //-----------------------Methods
 
     public void clickCheckout() {
