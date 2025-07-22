@@ -8,6 +8,7 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 
 public class ExcelReader {
     File file;
@@ -18,10 +19,18 @@ public class ExcelReader {
     XSSFCell cell;
 
     public ExcelReader(String filePath) throws IOException {
+
+
+
         file = new File(filePath);
         fis = new FileInputStream(file);
         wb = new XSSFWorkbook(fis);
     }
+
+    public ExcelReader(InputStream inputStream) throws IOException {
+        wb = new XSSFWorkbook(inputStream);
+    }
+
 
     public String getStringData(String sheetName, int rowNumber, int cellNumber) {
         sheet = wb.getSheet(sheetName);

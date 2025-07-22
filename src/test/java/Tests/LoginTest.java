@@ -60,14 +60,13 @@ public class LoginTest extends BaseTest {
     }
 
     @Test
-    public void testStandardUserCantLoginWithWrongPassword(){
+    public void testStandardUserCantLoginWithWrongPassword() {
         loginPage.login(standardUser, "stagod");
 
         Assert.assertEquals(loginPage.userError.getText(),
                 "Epic sadface: Username and password do not match any user in this service");
 
     }
-
 
 
 }

@@ -12,6 +12,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.time.Duration;
 
 public class BaseTest {
@@ -48,8 +49,13 @@ public class BaseTest {
         sidebarPage = new SidebarPage();
         cartPage = new CartPage();
 
-        excelReader = new ExcelReader
-                ("C:\\Users\\sinad\\IdeaProjects\\SaucedemoSelenium\\src\\test\\java\\users.xlsx");
+        //excelReader = new ExcelReader("C:\\Users\\sinad\\IdeaProjects\\SaucedemoSelenium\\src\\test\\java\\users.xlsx");
+
+        InputStream fileStream = getClass()
+                .getClassLoader()
+                .getResourceAsStream("users.xlsx");
+
+        excelReader = new ExcelReader(fileStream);
 
         standardUser = excelReader.getStringData("Sheet1", 1, 0);
         validPassword = excelReader.getStringData("Sheet1", 1, 1);
