@@ -38,17 +38,22 @@ public class CartPage {
 
     @FindBy(css = "h3[data-test=error]")
     public WebElement userErrorCart;
+
+    @FindBy(css = "[data-test=cancel]")
+    public WebElement cancelButton;
     //-----------------------Methods
 
     public void clickCheckout() {
         checkoutButton.click();
     }
 
-    public void filloutForm(String name, String lastname, String zip) {
+    public void fillOutForm(String name, String lastname, String zip) {
         firstName.sendKeys(name);
         this.lastName.sendKeys(lastname);
         zipCode.sendKeys(zip);
     }
+
+    public void clickCancel() {cancelButton.click();}
 
     public void clickContinue() {
         continueButton.click();

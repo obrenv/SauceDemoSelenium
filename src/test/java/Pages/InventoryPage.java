@@ -51,10 +51,10 @@ public class InventoryPage {
         cartIcon.click();
     }
 
-//    public void addAllItems(){
-//        for (WebElement item : addToCartButtons){
-//            item.click();
-//        }
-//    }
+    public void addAllItems(){
+        for (WebElement item : addToCartButtons){
+            item.click();
+        }
+    }
 
 }

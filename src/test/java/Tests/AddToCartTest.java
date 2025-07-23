@@ -25,15 +25,15 @@ public class AddToCartTest extends BaseTest {
         Assert.assertTrue(inventoryPage.emptyCartIcon.getText().equals(""));
     }
 
-//    @Test
-//    public void testAddAllItemsToCart(){
-//        driver.manage().deleteAllCookies();
-//        loginPage.login(standardUser,validPassword);
-//
-//
-//        inventoryPage.addAllItems();
-//        Assert.assertEquals(inventoryPage.cartIcon.getText(), "6");
-//    }
+    @Test
+    public void testAddAllItemsToCart(){
+        driver.manage().deleteAllCookies();
+        loginPage.login(standardUser,validPassword);
+
+
+        inventoryPage.addAllItems();
+        Assert.assertEquals(inventoryPage.cartIcon.getText(), "6");
+    }
 
 
 }
