@@ -19,9 +19,6 @@ public class ExcelReader {
     XSSFCell cell;
 
     public ExcelReader(String filePath) throws IOException {
-
-
-
         file = new File(filePath);
         fis = new FileInputStream(file);
         wb = new XSSFWorkbook(fis);
