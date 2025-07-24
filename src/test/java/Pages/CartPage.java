@@ -4,6 +4,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import java.util.List;
+
 import static Base.BaseTest.driver;
 
 public class CartPage {
@@ -41,6 +43,16 @@ public class CartPage {
 
     @FindBy(css = "[data-test=cancel]")
     public WebElement cancelButton;
+
+    @FindBy(className = "inventory_item_name")
+    public List<WebElement> itemTitles;
+
+    @FindBy(className = "inventory_item_desc")
+    public List<WebElement> itemDescriptions;
+
+    @FindBy(className = "inventory_item_price")
+    public List<WebElement> itemPrices;
+
     //-----------------------Methods
 
     public void clickCheckout() {

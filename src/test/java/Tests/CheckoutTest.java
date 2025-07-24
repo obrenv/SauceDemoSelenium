@@ -14,6 +14,7 @@ public class CheckoutTest extends BaseTest {
 
     @BeforeMethod
     public void loginUser(){
+        driver.manage().deleteAllCookies();
         loginPage.login(standardUser,validPassword);
 
 
@@ -21,7 +22,7 @@ public class CheckoutTest extends BaseTest {
 
     @Test
     public void standardUserCheckout() {
-        inventoryPage.clickAddToCart();
+        inventoryPage.clickAddToCart(itemNumber);
         inventoryPage.clickOnACart();
         cartPage.clickCheckout();
 
@@ -34,7 +35,7 @@ public class CheckoutTest extends BaseTest {
 
     @Test
     public void formFillingProperly(){
-        inventoryPage.clickAddToCart();
+        inventoryPage.clickAddToCart(itemNumber);
         inventoryPage.clickOnACart();
         cartPage.clickCheckout();
 
@@ -49,7 +50,7 @@ public class CheckoutTest extends BaseTest {
 
     @Test
     public void cantSendFormWithEmptyFields(){
-        inventoryPage.clickAddToCart();
+        inventoryPage.clickAddToCart(itemNumber);
         inventoryPage.clickOnACart();
         cartPage.clickCheckout();
 
@@ -61,7 +62,7 @@ public class CheckoutTest extends BaseTest {
 
     @Test
     public void cannotCheckoutWithoutFirstName() {
-        inventoryPage.clickAddToCart();
+        inventoryPage.clickAddToCart(itemNumber);
         inventoryPage.clickOnACart();
         cartPage.clickCheckout();
 
@@ -73,7 +74,7 @@ public class CheckoutTest extends BaseTest {
 
     @Test
     public void cannotCheckoutWithoutLastName() {
-        inventoryPage.clickAddToCart();
+        inventoryPage.clickAddToCart(itemNumber);
         inventoryPage.clickOnACart();
         cartPage.clickCheckout();
 
@@ -85,7 +86,7 @@ public class CheckoutTest extends BaseTest {
 
     @Test
     public void cannotCheckoutWithoutZipCode() {
-        inventoryPage.clickAddToCart();
+        inventoryPage.clickAddToCart(itemNumber);
         inventoryPage.clickOnACart();
         cartPage.clickCheckout();
 
@@ -97,7 +98,7 @@ public class CheckoutTest extends BaseTest {
 
     @Test
     public void cancelCheckoutReturnsToCart() {
-        inventoryPage.clickAddToCart();
+        inventoryPage.clickAddToCart(itemNumber);
         inventoryPage.clickOnACart();
         cartPage.clickCheckout();
 

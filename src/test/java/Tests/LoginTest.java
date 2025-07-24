@@ -1,8 +1,12 @@
 package Tests;
 
 import Base.BaseTest;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+
+import java.time.Duration;
 
 public class LoginTest extends BaseTest {
 
@@ -59,8 +63,11 @@ public class LoginTest extends BaseTest {
         Assert.assertTrue(driver.getCurrentUrl().equals("https://www.saucedemo.com/"));
     }
 
+    //Negative cases
+
+
     @Test
-    public void standardUserCantLoginWithWrongPassword() {
+    public void standardUserCannottLoginWithWrongPassword() {
         loginPage.login(standardUser, "stagod");
 
         Assert.assertEquals(loginPage.userError.getText(),
@@ -101,6 +108,53 @@ public class LoginTest extends BaseTest {
         loginPage.login("invalid_user", "invalid_pass");
         Assert.assertEquals(loginPage.userError.getText(),
                 "Epic sadface: Username and password do not match any user in this service");
+    }
+
+    //Special cases
+
+    @Test
+    public void performanceGlitchUserLoginDuration() {
+        long start = System.currentTimeMillis();
+
+        loginPage.login(performanceGlitchUser, validPassword);
+
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+        wait.until(ExpectedConditions.visibilityOf(inventoryPage.inventoryContainer));
+
+        long end = System.currentTimeMillis();
+        long duration = end - start;
+
+        System.out.println("Login took " + duration + " milliseconds");
+    }
+
+    @Test
+    public void performanceGlitchUserVsStandardUserLoginDuration() {
+
+
+        long performanceGlitchStart = System.currentTimeMillis();
+        loginPage.login(performanceGlitchUser, validPassword);
+
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+        wait.until(ExpectedConditions.visibilityOf(inventoryPage.inventoryContainer));
+
+        long performanceGlitchEnd = System.currentTimeMillis();
+        long performanceGlitchDuration = performanceGlitchEnd - performanceGlitchStart;
+
+
+        inventoryPage.clickBurgerMenu();
+        sidebarPage.clicklLogout();
+
+        long standardStart = System.currentTimeMillis();
+        loginPage.login(standardUser,validPassword);
+
+        long standardEnd = System.currentTimeMillis();
+        long standardDuration = standardEnd - standardStart;
+
+
+
+
+        System.out.println("Login of standard user took " + standardDuration + " milliseconds");
+        System.out.println("Login of performance glitch user took " + performanceGlitchDuration + " milliseconds");
     }
 
 

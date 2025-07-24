@@ -8,6 +8,7 @@ import Tests.AddToCartTest;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -31,6 +32,9 @@ public class BaseTest {
 
     protected String standardUser;
     protected String validPassword;
+
+    protected int itemNumber;
+    protected Select select;
 
     protected String lockedOutUser;
     protected String problemUser;

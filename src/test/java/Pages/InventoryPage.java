@@ -9,7 +9,6 @@ import java.util.List;
 import static Base.BaseTest.driver;
 
 public class InventoryPage {
-    //id = add-to-cart-sauce-labs-backpack
 
     public InventoryPage() {
         PageFactory.initElements(driver, this);
@@ -17,6 +16,8 @@ public class InventoryPage {
 
     @FindBy(id = "add-to-cart-sauce-labs-backpack")
     public WebElement addToCartButton;
+
+
 
     @FindBy(className = "shopping_cart_badge")
     public WebElement cartIcon;
@@ -33,10 +34,25 @@ public class InventoryPage {
     @FindBy(css = ".btn.btn_primary.btn_small.btn_inventory")
     public List<WebElement> addToCartButtons;
 
+    @FindBy(id = "inventory_container")
+    public WebElement inventoryContainer;
+
+    @FindBy(className = "inventory_item_name")
+    public List<WebElement> itemTitles;
+
+    @FindBy(className = "inventory_item_desc")
+    public List<WebElement> itemDescriptions;
+
+    @FindBy(className = "inventory_item_price")
+    public List<WebElement> itemPrices;
+
+    @FindBy(className = "product_sort_container")
+    public WebElement sortingOptions;
+
     //-----------------------Methods
 
-    public void clickAddToCart(){
-        addToCartButton.click();
+    public void clickAddToCart(int number){
+        addToCartButtons.get(number).click();
     }
 
     public void clickRemove(){
@@ -50,6 +66,8 @@ public class InventoryPage {
     public void clickOnACart(){
         cartIcon.click();
     }
+
+    public void clickOnSortingOptions(){sortingOptions.click();}
 
     public void addAllItems(){
         for (WebElement item : addToCartButtons){
