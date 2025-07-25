@@ -46,6 +46,10 @@ public class InventoryPage {
     @FindBy(className = "inventory_item_price")
     public List<WebElement> itemPrices;
 
+    @FindBy(css = ".inventory_item_img .inventory_item_img")
+
+    public List<WebElement> itemImages;
+
     @FindBy(className = "product_sort_container")
     public WebElement sortingOptions;
 
