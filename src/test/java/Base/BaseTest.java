@@ -1,10 +1,6 @@
 package Base;
 
-import Pages.CartPage;
-import Pages.InventoryPage;
-import Pages.LoginPage;
-import Pages.SidebarPage;
-import Tests.AddToCartTest;
+import Pages.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -27,6 +23,7 @@ public class BaseTest {
     public InventoryPage inventoryPage;
     public SidebarPage sidebarPage;
     public CartPage cartPage;
+    public ItemPage itemPage;
 
     public ExcelReader excelReader;
 
@@ -72,6 +69,7 @@ public class BaseTest {
         loginPage = new LoginPage();
         sidebarPage = new SidebarPage();
         cartPage = new CartPage();
+        itemPage = new ItemPage();
 
         //Loading xlsx file
         InputStream fileStream = getClass()

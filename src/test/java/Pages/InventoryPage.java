@@ -25,14 +25,14 @@ public class InventoryPage {
     @FindBy(className = "shopping_cart_link")
     public WebElement emptyCartIcon;
 
-    @FindBy(id = "remove-sauce-labs-backpack")
-    public WebElement removeItem;
-
     @FindBy(id = "react-burger-menu-btn")
     public WebElement burgerMenu;
 
     @FindBy(css = ".btn.btn_primary.btn_small.btn_inventory")
     public List<WebElement> addToCartButtons;
+
+    @FindBy(css = ".btn.btn_secondary.btn_small.btn_inventory")
+    public List<WebElement> removeFromCartButtons;
 
     @FindBy(id = "inventory_container")
     public WebElement inventoryContainer;
@@ -55,8 +55,8 @@ public class InventoryPage {
         addToCartButtons.get(number).click();
     }
 
-    public void clickRemove(){
-        removeItem.click();
+    public void clickRemove(int number){
+        removeFromCartButtons.get(0).click();
     }
 
     public void clickBurgerMenu(){
@@ -66,8 +66,6 @@ public class InventoryPage {
     public void clickOnACart(){
         cartIcon.click();
     }
-
-    public void clickOnSortingOptions(){sortingOptions.click();}
 
     public void addAllItems(){
         for (WebElement item : addToCartButtons){

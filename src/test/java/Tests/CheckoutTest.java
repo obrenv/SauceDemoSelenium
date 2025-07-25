@@ -14,10 +14,10 @@ public class CheckoutTest extends BaseTest {
 
     @BeforeMethod
     public void loginUser(){
-        driver.manage().deleteAllCookies();
         loginPage.login(standardUser,validPassword);
-
-
+        inventoryPage.clickBurgerMenu();
+        sidebarPage.clickResetApp();
+        driver.navigate().refresh();
     }
 
     @Test

@@ -14,8 +14,10 @@ import java.util.List;
 public class SortingTest extends BaseTest {
     @BeforeMethod
     public void loginUser() {
-        driver.manage().deleteAllCookies();
-        loginPage.login(standardUser, validPassword);
+        loginPage.login(standardUser,validPassword);
+        inventoryPage.clickBurgerMenu();
+        sidebarPage.clickResetApp();
+        driver.navigate().refresh();
 
         select = new Select(inventoryPage.sortingOptions);
     }
