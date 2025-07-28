@@ -14,7 +14,7 @@ import java.util.List;
 public class SortingTest extends BaseTest {
     @BeforeMethod
     public void loginUser() {
-        loginPage.login(standardUser,validPassword);
+        loginPage.login(standardUser, validPassword);
         inventoryPage.clickBurgerMenu();
         sidebarPage.clickResetApp();
         driver.navigate().refresh();

@@ -13,8 +13,8 @@ public class CheckoutTest extends BaseTest {
     String zip = faker.numerify("#####");
 
     @BeforeMethod
-    public void loginUser(){
-        loginPage.login(standardUser,validPassword);
+    public void loginUser() {
+        loginPage.login(standardUser, validPassword);
         inventoryPage.clickBurgerMenu();
         sidebarPage.clickResetApp();
         driver.navigate().refresh();
@@ -34,7 +34,7 @@ public class CheckoutTest extends BaseTest {
     }
 
     @Test
-    public void formFillingProperly(){
+    public void formFillingProperly() {
         inventoryPage.clickAddToCart(itemNumber);
         inventoryPage.clickOnACart();
         cartPage.clickCheckout();
@@ -49,7 +49,7 @@ public class CheckoutTest extends BaseTest {
     }
 
     @Test
-    public void cantSendFormWithEmptyFields(){
+    public void cantSendFormWithEmptyFields() {
         inventoryPage.clickAddToCart(itemNumber);
         inventoryPage.clickOnACart();
         cartPage.clickCheckout();

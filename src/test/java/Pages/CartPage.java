@@ -65,7 +65,9 @@ public class CartPage {
         zipCode.sendKeys(zip);
     }
 
-    public void clickCancel() {cancelButton.click();}
+    public void clickCancel() {
+        cancelButton.click();
+    }
 
     public void clickContinue() {
         continueButton.click();

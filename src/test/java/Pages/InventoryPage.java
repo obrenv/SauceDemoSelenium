@@ -18,7 +18,6 @@ public class InventoryPage {
     public WebElement addToCartButton;
 
 
-
     @FindBy(className = "shopping_cart_badge")
     public WebElement cartIcon;
 
@@ -55,24 +54,24 @@ public class InventoryPage {
 
     //-----------------------Methods
 
-    public void clickAddToCart(int number){
+    public void clickAddToCart(int number) {
         addToCartButtons.get(number).click();
     }
 
-    public void clickRemove(int number){
+    public void clickRemove(int number) {
         removeFromCartButtons.get(0).click();
     }
 
-    public void clickBurgerMenu(){
+    public void clickBurgerMenu() {
         burgerMenu.click();
     }
 
-    public void clickOnACart(){
+    public void clickOnACart() {
         cartIcon.click();
     }
 
-    public void addAllItems(){
-        for (WebElement item : addToCartButtons){
+    public void addAllItems() {
+        for (WebElement item : addToCartButtons) {
             item.click();
         }
     }

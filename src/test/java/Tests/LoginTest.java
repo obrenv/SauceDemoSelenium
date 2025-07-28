@@ -110,6 +110,22 @@ public class LoginTest extends BaseTest {
                 "Epic sadface: Username and password do not match any user in this service");
     }
 
+    //Logout functionality
+
+    @Test
+    public void userCanLogout() {
+
+        loginPage.login(standardUser, validPassword);
+        inventoryPage.clickBurgerMenu();
+        sidebarPage.clicklLogout();
+
+
+        String currentURL = driver.getCurrentUrl();
+        String expectedURL = "https://www.saucedemo.com/";
+
+        Assert.assertEquals(expectedURL, currentURL);
+    }
+
     //Special cases
 
     @Test
@@ -145,12 +161,10 @@ public class LoginTest extends BaseTest {
         sidebarPage.clicklLogout();
 
         long standardStart = System.currentTimeMillis();
-        loginPage.login(standardUser,validPassword);
+        loginPage.login(standardUser, validPassword);
 
         long standardEnd = System.currentTimeMillis();
         long standardDuration = standardEnd - standardStart;
-
-
 
 
         System.out.println("Login of standard user took " + standardDuration + " milliseconds");

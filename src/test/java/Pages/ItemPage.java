@@ -18,14 +18,13 @@ public class ItemPage {
     public WebElement removeFromCart;
 
 
-
 //-----------------------------------------methods
 
-    public void clickAddToCart(){
+    public void clickAddToCart() {
         addToCartButton.click();
     }
 
-    public void clickRemoveFromCart(){
+    public void clickRemoveFromCart() {
         removeFromCart.click();
     }
 }

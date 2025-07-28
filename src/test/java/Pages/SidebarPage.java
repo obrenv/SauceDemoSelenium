@@ -15,7 +15,7 @@ public class SidebarPage {
     @FindBy(id = "logout_sidebar_link")
     public WebElement logoutButton;
 
-    @FindBy(id="reset_sidebar_link")
+    @FindBy(id = "reset_sidebar_link")
     public WebElement resetAppButton;
 
     //--------------------------------------------------
@@ -24,7 +24,7 @@ public class SidebarPage {
         logoutButton.click();
     }
 
-    public void clickResetApp(){
+    public void clickResetApp() {
         resetAppButton.click();
     }
 

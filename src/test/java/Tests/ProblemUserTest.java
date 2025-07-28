@@ -64,23 +64,19 @@ public class ProblemUserTest extends BaseTest {
     }
 
     @Test
-    public void problemUserCannotClickRemoveButtonsAfterAddingItems(){
-        for(int i = 0; i<inventoryPage.addToCartButtons.size(); i++){
+    public void problemUserCannotClickRemoveButtonsAfterAddingItems() {
+        for (int i = 0; i < inventoryPage.addToCartButtons.size(); i++) {
             inventoryPage.addToCartButtons.get(i).click();
         }
 
-        for(int i = 0; i<inventoryPage.removeFromCartButtons.size(); i++){
+        for (int i = 0; i < inventoryPage.removeFromCartButtons.size(); i++) {
             inventoryPage.removeFromCartButtons.get(i).click();
         }
 
-        Assert.assertTrue(inventoryPage.removeFromCartButtons.size()>0);
+        Assert.assertTrue(inventoryPage.removeFromCartButtons.size() > 0);
         Assert.assertTrue(inventoryPage.cartIcon.isDisplayed());
 
     }
-
-
-
-
 
 
 }
